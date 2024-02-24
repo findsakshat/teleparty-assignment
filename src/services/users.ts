@@ -1,6 +1,6 @@
 const myHeaders = new Headers();
 myHeaders.append("Accept", "application/vnd.github+json");
-myHeaders.append("Authorization", "Bearer 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");
+myHeaders.append("Authorization", "Bearer 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");
 myHeaders.append("X-GitHub-Api-Version", "2022-11-28");
 
 const requestOptions: RequestInit = {
