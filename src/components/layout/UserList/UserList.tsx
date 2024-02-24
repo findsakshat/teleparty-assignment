@@ -29,15 +29,19 @@ export default function UserList() {
     getUsersWithFollowers();
   }, []);
 
+  if (!isLoading && (!users || !users.length)) {
+    return <p>No users found</p>
+  }
+
   // Searching
-  let filteredUsers = users.filter((user: any) => {
+  let filteredUsers = users?.filter((user: any) => {
     if (user.name && user.name.toLowerCase().includes(searchQuery.toLowerCase())) {
       return true;
     }
   });
 
   // Sorting
-  filteredUsers = filteredUsers.sort((a: any, b: any) => b['followers'] - a['followers']);
+  filteredUsers = filteredUsers?.sort((a: any, b: any) => b['followers'] - a['followers']);
 
   return (
     <div>
