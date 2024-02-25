@@ -26,8 +26,8 @@ export default function UserListTable(props: UserListTableProps) {
             <TableRow key={index}>
               {rowKeys && rowKeys.length && rowKeys.map((key: any, index: number) => {
                 if (key === "avatar_url") {
-                  return <TableCell className="flex items-center justify-center text-center" key={index}>
-                    <img height={40} width={40} className="rounded-full" src={item[key]} />
+                  return <TableCell className="w-[80px] text-center" key={index}>
+                    <img height={40} width={40} className="rounded-full text-center" src={item[key]} />
                   </TableCell>
                 }
                 if (key === "login") {
