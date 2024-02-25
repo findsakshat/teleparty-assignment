@@ -12,7 +12,7 @@ export default function UserListTable(props: UserListTableProps) {
   return (
     <Table className="border">
       <TableHeader>
-        <TableRow>
+        <TableRow className="bg-gray-100 dark:bg-gray-900">
           {headers && headers.map((item, index: number) => (
             <TableHead className="border" key={index}>{item.toUpperCase()}</TableHead>
           ))}
