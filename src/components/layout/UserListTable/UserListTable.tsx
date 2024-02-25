@@ -9,8 +9,6 @@ type UserListTableProps = {
 export default function UserListTable(props: UserListTableProps) {
   const { headers, rowKeys, users } = props;
 
-  console.log(users);
-
   return (
     <Table className="border">
       <TableHeader>
