@@ -9,6 +9,8 @@ type UserListTableProps = {
 export default function UserListTable(props: UserListTableProps) {
   const { headers, rowKeys, users } = props;
 
+  console.log(users);
+
   return (
     <Table className="border">
       <TableHeader>
@@ -22,9 +24,17 @@ export default function UserListTable(props: UserListTableProps) {
         {users && users.length > 0 && users.map((item: any, index: number) => {
           return (
             <TableRow key={index}>
-              {rowKeys && rowKeys.length && rowKeys.map((key: any, index: number) => (
-                <TableCell className="border" key={index}>{item[key] || "-"}</TableCell>
-              ))}
+              {rowKeys && rowKeys.length && rowKeys.map((key: any, index: number) => {
+                if (key === "avatar_url") {
+                  return <TableCell className="flex items-center justify-center text-center" key={index}>
+                    <img height={40} width={40} className="rounded-full" src={item[key]} />
+                  </TableCell>
+                }
+                if (key === "login") {
+                  return <TableCell className="border font-medium" key={index}>{item[key] || "-"}</TableCell>
+                }
+                return <TableCell className="border" key={index}>{item[key] || "-"}</TableCell>
+              })}
             </TableRow>
           )
         })}
