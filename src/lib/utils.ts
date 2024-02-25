@@ -12,3 +12,13 @@ export const keysWithSpaces = (obj: {}) => {
 export const keysWithUnderscores = (obj: {}) => {
   return Object.keys(obj).map((key) => key.replace(/\s+/g, '_'));
 };
+
+export const renderPageNuber = (page: number) => {
+  const numberString = page.toString();
+
+  if (numberString.length === 1) {
+    return '0' + numberString;
+  }
+
+  return numberString;
+}

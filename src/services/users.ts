@@ -11,23 +11,17 @@ const requestOptions: RequestInit = {
   redirect: "follow"
 };
 
-export const getUsersService = async () => {
-  const response = await fetch('https://api.github.com/users', requestOptions);
+export const getUsersService = async (page: number = 1, limit: number = 20) => {
+  const response = await fetch(`https://api.github.com/users?page=${page}&per_page=${limit}`, requestOptions);
   const data = await response.json();
   return data;
 }
 
-export const getUserService = async (username = "") => {
-  const response = await fetch(`https://api.github.com/users/${username}`, requestOptions);
-  const data = await response.json();
-  return data;
-}
-
-export const getUsersWithFollowersService = async () => {
+export const getUsersWithFollowersService = async (page: number = 1, limit: number = 20) => {
   const usersWithFollowers: any[] = [];
 
   try {
-    const users = await getUsersService();
+    const users = await getUsersService(page, limit);
 
     await Promise.all(
       users.map(async (user: any) => {

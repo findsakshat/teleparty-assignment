@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
+import Nav from "@/components/ui/navbar";
 
 const font = Poppins({ subsets: ["latin"], weight: ["400", "500", "700"] });
 
@@ -15,8 +16,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
-      <body className={font.className}>{children}</body>
+    <html lang="en">
+      <body className={font.className}>
+        <Nav />
+        {children}
+      </body>
     </html>
   );
 }

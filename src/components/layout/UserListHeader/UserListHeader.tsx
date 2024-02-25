@@ -12,16 +12,16 @@ export default function UserListHeader(props: UserListHeaderProps) {
   return (
     <div>
       <div className="flex items-center justify-between">
-        <div style={{ flex: 0.3 }}>
+        <div style={{ flex: 0.6 }}>
           <h3 className="text-xl font-medium">Users</h3>
-          <p className="text-sm text-gray-500">All users from GitHub API</p>
+          <p className="text-sm text-gray-500">Displaying all users from GitHub API</p>
         </div>
         <div style={{ flex: 0.4 }}>
           <Input
             className="h-[44px]"
             placeholder="Search users"
             onChange={onSearch}
-            value={value || undefined}
+            value={value}
           />
         </div>
       </div>
